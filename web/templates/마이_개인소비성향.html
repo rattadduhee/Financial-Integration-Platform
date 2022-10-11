@@ -69,8 +69,32 @@
       </div></header>
     <section class="u-clearfix u-section-1" id="sec-5a6d">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-custom-font u-text u-text-default u-text-1">나의 소비성향</h3>
-        <a href="{% url 'my' %}" class="u-btn u-btn-round u-button-style u-radius-17 u-btn-1">뒤로가기</a>
+        <h3 class="u-custom-font u-text u-text-default u-text-1">나의 소비성향</h3><br><br><br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <canvas id="doughnut-chart" width="300" height="150">    
+          {% for info in my_info %}
+            <script>
+              var a = "{{info}}";
+              
+              new Chart(document.getElementById("doughnut-chart"), {
+              type: 'doughnut',
+              data: {
+                labels: ["여행","식비", "카페/간식", "쇼핑", "교육", "문화/여가", "의료/건강", "교통", "생활"],
+                fontSize:18,
+                datasets: [
+                  {
+                    label: "금액 (원)",
+                    backgroundColor: ["#FF6C60","#FFD299","#FFF4B0","#AFBF73","#538C51","#91BDD9","#728EA6","#E8E4E1","#D5CFBF"],
+                    data: ["{{info.travel}}","{{info.food}}", "{{info.cafe}}", "{{info.shopping}}", "{{info.education}}", "{{info.leisure}}", "{{info.medical}}", "{{info.traffic}}", "{{info.life}}"]
+                  }
+                ]
+              },    
+              });
+            </script></canvas> 
+          {% endfor %}
+          
+         
+        <a href="{% url 'my' %}" class="u-btn u-btn-round u-button-style u-radius-17 u-btn-1" style="position: absolute; top:230px;left:500px">뒤로가기</a>
       </div>
     </section>
     

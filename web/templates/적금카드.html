@@ -75,6 +75,15 @@
     <section class="u-clearfix u-section-1" id="sec-e815">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-custom-font u-text u-text-default u-text-1">나만의 적금/카드 상품 확인</h3>
+
+        {% for info in save_info %}
+              <h1>{{info.period}}</h1> 
+              </br>
+        {% endfor %}
+        {% for info in card_info %}
+              <h1>{{info.period}}</h1> 
+              </br>
+        {% endfor %}
       </div>
     </section>
     

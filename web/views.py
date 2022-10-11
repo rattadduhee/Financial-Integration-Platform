@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
-from .models import User
+from .models import User, Consume, Saving, Card
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from web.forms import UserForm
-
 # from .models import Myuser
 
 from django.contrib.auth.hashers import make_password, check_password #비밀번호 암호화 / 패스워드 체크(db에있는거와 일치성확인)
@@ -23,13 +22,18 @@ def login(request):
     return render(request,'../templates/로그인.html')
 
 def 소비(request):
-    return render(request,'../templates/마이_개인소비성향.html')
+    user_id = request.user.id
+    my_info = Consume.objects.filter(username=user_id)
+    return render(request,'../templates/마이_개인소비성향.html', {'my_info':my_info})
 
 def 자산(request):
     return render(request,'../templates/마이_개인자산상태.html')
 
 def 적금카드(request):
-    return render(request,'../templates/적금카드.html')
+    user_age = request.user.age
+    save_info = Saving.objects.filter(age=user_age)
+    card_info = Card.objects.filter(age=user_age)
+    return render(request,'../templates/적금카드.html', {'save_info':save_info, 'card_info':card_info})
 
 def my(request):
     return render(request,'../templates/마이페이지.html')
