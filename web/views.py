@@ -26,17 +26,11 @@ def 소비(request):
     my_info = Consume.objects.filter(username=user_id)
     return render(request,'../templates/마이_개인소비성향.html', {'my_info':my_info})
 
-def 자산(request):
-    return render(request,'../templates/마이_개인자산상태.html')
-
 def 적금카드(request):
     user_age = request.user.age
     save_info = Saving.objects.filter(age=user_age)
     card_info = Card.objects.filter(age=user_age)
     return render(request,'../templates/적금카드.html', {'save_info':save_info, 'card_info':card_info})
-
-def my(request):
-    return render(request,'../templates/마이페이지.html')
 
 def 주거(request):
     return render(request,'../templates/부동산_맞춤주거지역.html')

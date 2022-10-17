@@ -17,9 +17,9 @@
     
     
     <script type="application/ld+json">{
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": ""
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
 }</script>
     <meta name="theme-color" content="#59bec1">
     <meta property="og:title" content="마이_적금카드상품 확인">
@@ -42,12 +42,13 @@
             <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url 'home' %}" style="padding: 10px;">Home</a>
             </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '부동산' %}" style="padding: 10px;">부동산</a>
             </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '주식' %}" style="padding: 10px;">주식</a>
+              {% if user.is_authenticated %}
             </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '적금카드' %}" style="padding: 10px;">적금/카드</a>
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '소비' %}" style="padding: 10px;">나의소비성향</a>
+            {%else%}
+            {%endif%}
             </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '설명회' %}" style="padding: 10px;">설명회정보</a>
               {% if user.is_authenticated %}
-            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url 'my' %}" style="padding: 10px;">마이페이지</a>
-          {%else%}
-          {%endif%}{% if user.is_authenticated %}
             </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1"  href="{% url 'logout' %}" style="padding: 10px;">로그아웃</a>
             {% else %}
             </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url 'login' %}" style="padding: 10px;">로그인</a>
@@ -63,7 +64,7 @@
                 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '주식' %}">주식</a>
                 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '적금카드' %}">적금/카드</a>
                 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '설명회' %}">설명회정보</a>
-                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'my' %}">마이페이지</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '소비' %}">나의소비성향</a>
                 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'login' %}">로그인</a>
                 </li></ul>
               </div>
@@ -75,111 +76,112 @@
     <section class="u-clearfix u-section-1" id="sec-e815">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-custom-font u-text u-text-default u-text-1">나만의 적금/카드 상품 확인</h3>
-        <br>
+        <br><br>
         <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-row">
               <div style="left:50px" class="u-container-style u-layout-cell u-left-cell u-size-23 u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-1">  
                   <p class="u-custom-font u-text u-text-default u-text-1">적금 추천</p>
-                  <br><br>
+                  <br><br><br>
                   <img class="u-image u-image-1" src="{% static '/images/bankbook (4).png'%}" data-image-width="356" data-image-height="356">
-                  <br><br>
+                  <br><br><br><br><br><br><br>
                   <p class="u-custom-font u-text u-text-default u-text-1">카드 추천</p>
-                  <br><br>
+                  <br><br><br>
                   <img class="u-image u-image-1" src="{% static '/images/nori.png'%}" data-image-width="360" data-image-height="360">
               </div>
-              <div style="right:-270px" class="u-align-left u-container-style u-layout-cell u-right-cell u-size-37 u-layout-cell-2">
-                  <div style="width:300px" class="u-container-layout u-container-layout-2">
+              <div style="right:-250px" class="u-align-left u-container-style u-layout-cell u-right-cell u-size-37 u-layout-cell-2">
+                  <div style="width:500px; height: 1200px;" class="u-container-layout u-container-layout-2">
                     <!-- <p class="u-custom-font u-text u-text-default u-text-1">카드 추천</p> -->
                     <div>
                         {% for info in save_info %}
+                        <section>
+                        <!-- <div style="border: 1px solid #444444; width: 400px;"> -->
                             <h3 style='top:20px; font-size: 26px;' class="u-custom-font u-text u-text-default u-text-1">{{info.saving_name}}</h3> 
                             <br>
                             <div style='top:40px'>
-                            <section style="left:-50px">                              
+                            <section style="left:-10px">                              
                              <div style="display:inline-block;vertical-align:top;">
                               <img src="{% static '/images/calendar.png'%}" alt="img"/>
                               </div>
-                              <div style="display:inline-block;">
-                              <p>
-                                <b>기간 : {{info.period}}</b>
+                              <div style="display:inline-block; color:#8B4513; font-family: 'ONEMobileTitle'; ">
+                              <p style="font-size:20px">
+                                &nbsp;기간 : {{info.period}}
                               </p>
                               <br>
                               </div>
                             </section>
-                            <section style="left:-50px">
+                            <section style="left:-10px">
                             <div style="display:inline-block;vertical-align:top;">
                                 <img src="{% static '/images/banknotes.png'%}" alt="img"/>
                                 </div>
-                                <div style="display:inline-block;">
-                                <p>
-                                  <b>가격 : {{info.price}}</b>
+                                <div style="display:inline-block;color:#8B4513; font-family: 'ONEMobileTitle';">
+                                <p style="font-size:20px">
+                                  &nbsp;가격 : {{info.price}}
                                 </p>
                                 <br>
                               </div>
                             </section>
-                            <section style="left:-50px">
+                            <section style="left:-10px">
                               <div style="display:inline-block;vertical-align:top;">
                                   <img src="{% static '/images/rate.png'%}" alt="img"/>
                                   </div>
-                                  <div style="display:inline-block;">
-                                  <p>
-                                    <b>이율 : {{info.interest_rate}}</b>
-                                  </p>
+                                  <div style="display:inline-block;color:#8B4513; font-family: 'ONEMobileTitle';">
+                                  <p style="font-size:20px">
+                                    &nbsp;이율 : {{info.interest_rate}}
+                                  </p><br><br>
                               </div>
-                    <a class="u-active-none u-custom-font u-border-none u-border-none u-btn u-button-style" href="https://obank.kbstar.com/quics?page=C016613&cc=b061496:b061645&isNew=N&prcode=DP01000228" target="_blank">자세히 살펴보기</a>
-                    <!-- u--none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-font u-radius-19 u-btn-1 -->
-                            </section>
+                              
+                              <div style="left:60px">
+                                <!-- u-btn u-btn-round u-button-style u-radius-17 u-btn-1 -->
+                    <a style="font-family: 'ONEMobileTitle';"class="u-btn u-btn-round u-button-style u-radius-17" href="https://obank.kbstar.com/quics?page=C016613&cc=b061496:b061645&isNew=N&prcode=DP01000228" target="_blank">자세히 살펴보기</a>
+                    </div>
+                            </section></section>
                             </div>
-                            </br>
+                            <br><br><br>
                         {% endfor %}
                         {% for info in card_info %}
-                        <h3 style='top:20px' class="u-custom-font u-text u-text-default">{{info.card_name}}</h3> 
+                        <section>
+                        <h3 style='top:20px; left:10px; font-size: 26px;' class="u-custom-font u-text u-text-default u-text-1">{{info.card_name}}</h3> 
                         <br>
                         <div style='top:40px'>
-                        <section style="left:-50px">                              
+                        <section style="left:-10px">                              
                          <div style="display:inline-block;vertical-align:top;">
                           <img src="{% static '/images/benefit1.png'%}" alt="img"/>
                           </div>
-                          <div style="display:inline-block;">
-                          <p class="u-custom-font">
-                            <b>{{info.benefit1}}</b>
-                          </p>
+                          <div style="display:inline-block; color:#8B4513; font-family: 'ONEMobileTitle';">
+                            <p style="font-size:20px">&nbsp;{{info.benefit1}}</p>
                           <br>
                           </div>
                         </section>
-                        <section style="left:-50px">
+                        <section style="left:-10px">
                         <div style="display:inline-block;vertical-align:top;">
                             <img src="{% static '/images/benefit2.png'%}" alt="img"/>
                             </div>
-                            <div style="display:inline-block;">
-                            <p>
-                              <b>{{info.benefit2}}</b>
-                            </p>
+                            <div style="display:inline-block;color:#8B4513; font-family: 'ONEMobileTitle';">
+                              <p style="font-size:20px">&nbsp;{{info.benefit2}}</p>
                             <br>
                           </div>
                         </section>
-                        <section style="left:-50px">
+                        <section style="left:-10px">
                           <div style="display:inline-block;vertical-align:top;">
                               <img src="{% static '/images/benefit3.png'%}" alt="img"/>
                               </div>
-                              <div style="display:inline-block;">
-                              <p>
-                                <b>{{info.benefit3}}</b>
-                              </p>
+                              <div style="display:inline-block;color:#8B4513; font-family: 'ONEMobileTitle';">
+                                <p style="font-size:20px">
+                                  &nbsp;{{info.benefit3}}</p><br><br>
                           </div>
-                    <a class="u-active-none u-border-none u-btn u-button-style" href="https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=01664" target="_blank">자세히 살펴보기</a>
-                        </section>
+                          <div style="left:60px">
+                    <a style="font-family: 'ONEMobileTitle';" class="u-btn u-btn-round u-button-style u-radius-17" href="https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=01664" target="_blank">자세히 살펴보기</a>
+                 </div> </section>
                         </div>
-                        </br>
+                        </br></section>
                         {% endfor %}
                         <!-- {% for info in card_info %}
                             <p>{{info.period}}</p> 
                            </br>
                         {% endfor %} -->
                       </div>
-                  <a href="{% url '실거래가' %}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-font u-radius-19 u-btn-1"> 실거래가 확인하기</a>
                 </div>
               </div>
             </div>
