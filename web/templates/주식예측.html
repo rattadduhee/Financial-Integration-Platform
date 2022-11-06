@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="KB 재테크 플랫폼, 회원가입이 완료되었습니다.">
+    <meta name="description" content="">
+    <title>주식</title>
+    <link rel="stylesheet" href="{% static '/CSS/default.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static '/CSS/주식.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static '/javascript/jquery.js'%}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static '/javascript/nicepage.js'%}" defer=""></script>
+    <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
+    
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#59bec1">
+    <meta property="og:title" content="주식">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en">
+    <section class="u-clearfix u-section-1" id="sec-82d8" >
+      <div class="u-clearfix u-sheet u-sheet-1" style="width:100%">
+        <!-- <h3 class="u-custom-font u-text u-text-default u-text-1"> 주식 예측</h3>    -->
+        <div>
+          <br><br>
+          <h3 style='display: block; margin: 0 auto;' class="u-custom-font u-text u-text-default u-text-1"> {{key}} </h3>
+          <script>
+            function img(){
+              let img_name = "<img style='display: block; margin: 0 auto;' class='u-image u-image-1' src=\'/static/images/" + "{{key}}";
+              let img_name2 = img_name +  ".png\' data-image-width=\'356\' data-image-height=\'356\'>";            
+              document.write(img_name2) ;
+            } 
+            img();
+            // <br><br>
+          </script><br><br>
+          {% if act_list_json %}
+              {% for i in act_list_json %}
+              <script>
+                function act(){
+                  if ( {{i.act}} == 0 ){
+                    document.write('<h3 style="display: block; margin: 0 auto;"  class="u-custom-font u-text u-text-default u-text-1"> <font color="red">매수</font> 추천 합니다 :)</h3>');
+                  } else if ( {{i.act}} == 1 ){
+                    document.write('<h3 style="display: block; margin: 0 auto;" class="u-custom-font u-text u-text-default u-text-1"> <font color="blue">매도</font> 추천 합니다 :)</h3>');
+                  } else {
+                    document.write('<h3 style="display: block; margin: 0 auto;" class="u-custom-font u-text u-text-default u-text-1"> <font color="#3cb371">대기</font> 추천 합니다 :)</h3>');
+                  }
+                  // document.write('<h3 style = "left:100px;" class="u-custom-font u-text u-text-default u-text-1">' + act_color + '추천 합니다 :)</h3>')
+                }
+                act()
+              </script>
+              <!-- <h3 style = "left:100px;" class="u-custom-font u-text u-text-default u-text-1"> <font color="blue">매도</font> 추천 합니다 :)</h3> -->
+                <!-- <h3 style = "left:100px;" class="u-custom-font u-text u-text-default u-text-1"><span sytle="color:red;">{{i.act}}</span> 추천 합니다 :)</h3> -->
+              {% endfor %}
+          {% endif %}
+          
+          <!-- {% for info in apt_list|safe %}
+          {% endfor %} -->
+        </div>
+      </div>
+      </section>
+    <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+      <div class="u-gutter-0 u-layout">
+        <div class="u-layout-row">
+          <div class="u-container-style u-layout-cell u-left-cell u-size-23 u-layout-cell-1">
+            <div class="u-gutter-0 u-layout">
+            <div class="u-layout-row">
+             
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+</body></html>
