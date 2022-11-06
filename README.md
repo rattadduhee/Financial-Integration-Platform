@@ -3,7 +3,7 @@ KB 재테크 통합 플랫폼
 
 ## ✍️ 요약
 
-![메인 화면](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ccea0dfd-2efd-449e-9b27-cea321894b58/kb%EC%9E%AC%ED%85%8C%ED%81%AC%ED%94%8C%EB%9E%AB%ED%8F%BC_Moment.jpg)
+![kb재테크플랫폼_Moment](https://user-images.githubusercontent.com/34684492/200186298-f7ffe4c1-e014-49bf-bfb5-448cda42cae4.jpg)
 
 메인 화면
 
@@ -24,29 +24,3 @@ KB 재테크 통합 플랫폼
 - HTML, CSS, JS
 - MariaDB, Django
 - RandomForest, XGB, LGBM, LSTM
-
-## 🖥 담당한 기능
-
-### Front-End
-
-- HTML, CSS, JS를 이용하여 프로젝트 전반의 UI/UX 구현
-    - UI 요소를 컴포넌트 형태로 구현
-    - 카카오 지도 API를 활용한 아파트 위치 정보 제공
-    - 부동산 실거래가 및 예측가, 소비데이터 시각화
-    - 고객 데이터에 따른 적금, 카드상품 추천
-    - 재테크 설명회 정보 제공
-
-### Back-End
-
-- MariaDB를 이용한 DB 구축 및 Django를 활용한 웹 백엔드 구현
-    - 대용량 부동산, 주식 데이터 활용 프로젝트 전반의 DB 테이블 구축
-    - Django MVT 패턴을 활용한 웹페이지 구현
-
-## 💡 성장한 부분
-
-- 서비스를 개발하고 사용자를 사로잡기 위해 **UI/UX 디자인**을 더욱 깔끔하게 구현하기 위해 노력했습니다.
-- 고객 데이터를 활용하여 적금, 카드상품 추천 기능을 구현하며 **데이터의 중요성**을 다시 한 번 깨달았습니다. 적은 고객 데이터를 활용하여 기능을 구현해야 했기 때문에 단순한 **연령대에 따른 상품 추천**밖에 하지 못하였으나, 입사 후 **다양한 데이터(소비데이터 등)를 활용**하여 이를 구현해보고 싶습니다.
-
-## 🔥 인증
-
-- IT’s Your Life 2기 **최우수 프로젝트**로 선정되었습니다.
