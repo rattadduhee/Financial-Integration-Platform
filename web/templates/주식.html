@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+{% load static %}
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="KB 재테크 플랫폼, 회원가입이 완료되었습니다.">
+    <meta name="description" content="">
+    <title>주식</title>
+    <link rel="stylesheet" href="{% static '/CSS/default.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static '/CSS/주식.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static '/javascript/jquery.js'%}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static '/javascript/nicepage.js'%}" defer=""></script>
+    <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
+    <script>
+      function add(num) {
+          var regexp = /\B(?=(\d{3})+(?!\d))/g;
+          return num.toString().replace(regexp, ','); 
+      }
+    </script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#59bec1">
+    <meta property="og:title" content="주식">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-white u-header" id="sec-8229"><div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-contain u-image-default u-image-1" src="{% static '/images/KB1.png'%}" alt="" data-image-width="602" data-image-height="468">
+        <h1 class="u-custom-font u-text u-text-default u-text-1">
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="{% url 'home' %}">KB 재테크 플랫폼</a>
+        </h1>
+        <nav class="u-align-right u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
+          
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url 'home' %}" style="padding: 10px;">Home</a>
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '부동산' %}" style="padding: 10px;">부동산</a>
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '주식' %}" style="padding: 10px;">주식</a>
+              {% if user.is_authenticated %}
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '적금카드' %}" style="padding: 10px;">적금/카드</a>
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '소비' %}" style="padding: 10px;">나의소비성향</a>
+            {%else%}
+            {%endif%}
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url '설명회' %}" style="padding: 10px;">설명회정보</a>
+              {% if user.is_authenticated %}
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1"  href="{% url 'logout' %}" style="padding: 10px;">로그아웃</a>
+            {% else %}
+            </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-1" href="{% url 'login' %}" style="padding: 10px;">로그인</a>
+            {% endif %}
+            </li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home' %}">Home</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '부동산' %}">부동산</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '주식' %}">주식</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '적금카드' %}">적금/카드</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '설명회' %}">설명회정보</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url '소비' %}">나의소비성향</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'login' %}">로그인</a>
+                </li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="sec-82d8" >
+      <div class="u-clearfix u-sheet u-sheet-1" style="width:100%">
+        <h3 class="u-custom-font u-text u-text-default u-text-1"> 주식 재테크</h3>   
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        {% csrf_token %}
+        <form method="POST">
+          <div class="u-form-group u-form-name"></div>       
+        <!-- 주식 종목 목록 -->
+        <div style="bottom:-10px;">
+        <table
+            border="1"
+            width="400"
+            height="550"
+            bgcolor='white'
+            bordercolor='white'
+            cellspacing="2"
+            style="padding:20px; float: left; color:#978d6b;font-size :17px;";>
+            <caption style="color:black">국내종목</caption>
+            <tbody>
+               <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>kb금융그룹</td>
+                  <script>
+                    function compare(){
+                        if ( {{kb.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{kb.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{kb.diff}}) +"</td>")
+                        }
+                        else if( {{kb.diff}} == 0 ){
+                           document.write("<td>" + add({{kb.close}}) +"</td>")
+                           document.write("<td>" + add({{kb.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{kb.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{kb.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="KB금융">확인</button></td>
+                </tr>
+               <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>삼성전자</td>
+                  <script>
+                    function compare(){
+                        if ( {{ss.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{ss.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{ss.diff}}) +"</td>")
+                        }
+                        else if( {{ss.diff}} == 0 ){
+                           document.write("<td>" + add({{ss.close}}) +"</td>")
+                           document.write("<td>" + add({{ss.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{ss.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{ss.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="삼성전자">확인</button></td>
+               </tr>
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>엔씨소프트</td>
+                  <script>
+                    function compare(){
+                        if ( {{nc.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{nc.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{nc.diff}}) +"</td>")
+                        }
+                        else if( {{nc.diff}} == 0 ){
+                           document.write("<td>" + add("{{nc.close}}") +"</td>")
+                           document.write("<td>" + add({{nc.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{nc.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{nc.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="엔씨소프트">확인</button></td>
+                </tr>                
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>카카오</td>
+                  <script>
+                    function compare(){
+                        if ( {{kko.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{kko.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{kko.diff}}) +"</td>")
+                        }
+                        else if( {{kko.diff}} == 0 ){
+                           document.write("<td>" + add({{kko.close}}) +"</td>")
+                           document.write("<td>" + add({{kko.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{kko.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{kko.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="카카오">확인</button></td>
+                </tr>
+                <tr  onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>LG전자</td>
+                  <script>
+                    function compare(){
+                        if ( {{lge.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{lge.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{lge.diff}}) +"</td>")
+                        }
+                        else if( {{lge.diff}} == 0 ){
+                           document.write("<td>" + add({{lge.close}}) +"</td>")
+                           document.write("<td>" + add({{lge.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{lge.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{lge.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="LG전자">확인</button></td>
+                </tr>                
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>네이버</td>
+                  <script>
+                    function compare(){
+                        if ( {{naver.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{naver.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{naver.diff}}) +"</td>")
+                        }
+                        else if( {{naver.diff}} == 0 ){
+                           document.write("<td>" + add({{naver.close}}) +"</td>")
+                           document.write("<td>" + add({{naver.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{naver.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{naver.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="네이버">확인</button></td>
+                </tr>
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>SK</td>
+                  <script>
+                    function compare(){
+                        if ( {{sk.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{sk.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{sk.diff}}) +"</td>")
+                        }
+                        else if( {{sk.diff}} == 0 ){
+                           document.write("<td>" + add({{sk.close}}) +"</td>")
+                           document.write("<td>" + add({{sk.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{sk.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{sk.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="SK">확인</button></td>
+                </tr>
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>셀트리온</td>
+                  <script>
+                    function compare(){
+                        if ( {{ct.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{ct.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{ct.diff}}) +"</td>")
+                        }
+                        else if( {{ct.diff}} == 0 ){
+                           document.write("<td>" + add({{ct.close}}) +"</td>")
+                           document.write("<td>" + add({{ct.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{ct.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{ct.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="셀트리온">확인</button></td>
+                </tr>                
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>LG화학</td>
+                  <script>
+                    function compare(){
+                        if ( {{lgc.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{lgc.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{lgc.diff}}) +"</td>")
+                        }
+                        else if( {{lgc.diff}} == 0 ){
+                           document.write("<td>" + add({{lgc.close}}) +"</td>")
+                           document.write("<td>" + add({{lgc.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{lgc.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{lgc.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="LG화학">확인</button></td>
+                </tr>
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>CJ제일제당</td>
+                  <script>
+                    function compare(){
+                        if ( {{cj.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{cj.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{cj.diff}}) +"</td>")
+                        }
+                        else if( {{cj.diff}} == 0 ){
+                           document.write("<td>" + add({{cj.close}}) +"</td>")
+                           document.write("<td>" + add({{cj.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{cj.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{cj.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="CJ제일제당">확인</button></td>
+                </tr>
+                <tr onmouseover="this.style.background = '#fff8dc'" onmouseout="this.style.background='white'" align="center" bgcolor="white">
+                  <td>신세계</td>
+                  <script>
+                    function compare(){
+                        if ( {{ssg.diff}} > 0 ){
+                           document.write("<td style='color:red'>" + add({{ssg.close}}) +"</td>")
+                           document.write("<td style='color:red'> ▲ " + add({{ssg.diff}}) +"</td>")
+                        }
+                        else if( {{ssg.diff}} == 0 ){
+                           document.write("<td>" + add({{ssg.close}}) +"</td>")
+                           document.write("<td>" + add({{ssg.diff}}) +"</td>")
+                        }
+                        else{
+                           document.write("<td style='color:blue'>" + add({{ssg.close}}) +"</td>")
+                           document.write("<td style='color:blue'> ▼ " + add({{ssg.diff}}) +"</td>")
+                        }
+                        }
+                      compare()
+                  </script>
+                  <td><button type="submit" name="keywords" value="신세계">확인</button></td>
+                </tr>
+            </tbody> </form>
+        </table>
+      </div>
+
+          <!-- 주가 차트 -->
+        <div id="container" style="padding: 0px 0px 0px 50px; width:720px;height:600px;" >
+          <script src="https://code.highcharts.com/stock/highstock.js"></script>
+          <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script>
+            const cl = {{close|safe}}
+            const op = {{open|safe}}
+            function setChart() {
+              Highcharts.setOption({
+                global: {
+                  useUTC: false
+                }
+              });
+            };
+        
+            
+            new Highcharts.setOptions({
+                  global: {
+                    useUTC: false
+                  }
+                });
+        
+                Highcharts.stockChart("container", {
+        
+                  chart: {
+                    height: 500
+                  },
+        
+                  title: { 
+                    text: "{{key}}"
+                  }, 
+        
+                  rangeSelector: {
+                    selected: 2,
+                    inputEnabled: false
+                  },
+        
+                  xAxis: {
+                    type: 'datetime',
+                    labels:{
+                      formatter: function(){
+                        return Highcharts.dateFormat('%y.%m.%d', this.value);
+                      },
+                      step: 3
+                    }
+                  },
+        
+                  yAxis: {
+                    labels: {
+                      format: '{value}p',
+                      style: {
+                        color: 'rgba(0,0,0,.6)',
+                      },
+                      x: 30,
+                    },
+                    opposite: false,
+                    tickInterval: 50,   
+                  },
+        
+                  tooltip: {
+                    xDateFormat: '%Y-%m-%d',
+                    split: true
+                  },
+        
+                  series: [{
+                      name: '시가',          
+                      data: op,
+                      color: 'rgba(0,200,0,.6)',
+                      lineWidth: 2
+                  }, 
+                  {
+                      name: '종가',          
+                      data: cl,
+                      lineWidth: 3
+                  }],
+        
+                  legend: {
+                    enabled: true, 
+                    align: 'left',
+                    verticalAlign: 'top',
+                    floating: true,
+                    x: 30,
+                    y: 70
+                  },
+                  
+                  responsive: {
+                    rules: [{
+                      condition: {
+                        maxWidth: 600
+                      },
+                      chartOptions: {
+                        chart: {
+                          height: 300
+                        },
+                        navigator: {
+                          enabled: false
+                        }
+                      }
+                    }]
+                  }
+                });
+           
+          </script>
+        </div>
+        <div style="margin-left:100px;">
+          <div style='top:40px'>
+          <section>                              
+           <div style="display:inline-block;vertical-align:top;">
+            <div class="container">            
+                <table  
+                  style="font-size: .9em;
+                  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+                  width: 150%;
+                  text-align: center;
+                  display:inline-table;
+                  color:gray;
+                  padding:20px;">
+              <caption style="color:black; font-size: 17px;">일자별 시세</caption>
+                  <thead
+                  style="font-weight: bold;
+                  font-size:20px;
+                  color: #fff;
+                  background: #8F7E6D;
+                  ">
+                  
+                    {% if date_list_json %}
+                    <tr>
+                      <th>일자</th>
+                      <th>종가</th>
+                      <th>전일대비</th>
+                      <th>등락률</th>
+                      <th>시가</th>                        
+                      <th>고가</th>
+                      <th>저가</th>
+                      <th>거래량</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                  {% for i in date_list_json %}
+
+                    <tr
+                    style="
+                    height: 50px;
+                    padding:5em .5em; 
+                    font-size:18px;
+                    border-bottom: 1px solid rgba(0,0,0,.1);
+                    background: #fff;">
+                      <td>{{i.date}}</td>
+                              <script>
+                                document.write("<td>" + add("{{i.close}}") +"</td>")
+                                function diff(){
+                                  if ( {{i.diff}} > 0 ){
+                                    document.write("<td style='color:red'> ▲ " + add({{i.diff}}) +"</td>")
+                                  }
+                                  else if( {{i.diff}} == 0 ){
+                                    document.write("<td>" + add({{i.diff}}) +"</td>")
+                                  }
+                                  else{
+                                    document.write("<td style='color:blue'> ▼ " + add({{i.diff}}) +"</td>")
+                                  }
+                                }
+                                diff()
+                                function ratio(){
+                                  if ( {{i.diff_ratio}} > 0 ){
+                                    document.write("<td style='color:red'>" + {{i.diff_ratio}} +"%</td>")
+                                  }
+                                  else if( {{i.diff_ratio}} == 0 ){
+                                    document.write("<td>" + {{i.diff_ratio}} +"</td>")
+                                  }
+                                  else{
+                                    document.write("<td style='color:blue'>" + {{i.diff_ratio}} +"%</td>")
+                                  }
+                                }
+                                ratio()
+                                document.write("<td>" + add("{{i.open}}") +"</td>")
+                                document.write("<td>" + add("{{i.high}}") +"</td>")
+                                document.write("<td>" + add("{{i.low}}") +"</td>")
+                                document.write("<td>" + add("{{i.volume}}") +"</td>")                        
+                              </script>
+                    </tr>
+                  {% endfor %}
+                  {% endif %}
+                  </tbody>
+                </table>
+
+              </div>
+              <!-- {% for info in date_list|safe %}
+              {% endfor %} -->
+            </div><br><br>            
+            <section style="top:10px;left:400px;height: 200px">
+              <a class="u-btn u-btn-round u-button-style u-radius-17" onclick="window.open('{% url '주식예측' %}?key={{key}}', 'window_name', 'width=800, height=800, location=no, status=no, scrollbars=yes');"target="_blank">주가예측확인</a>
+            </section></section></div></div>
+
+          
+          <br><br>
+
+      </div>
+    </section>
+    <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+      <div class="u-gutter-0 u-layout">
+        <div class="u-layout-row">
+          <div class="u-container-style u-layout-cell u-left-cell u-size-23 u-layout-cell-1">
+            <div class="u-gutter-0 u-layout">
+            <div class="u-layout-row">
+             
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <footer class="u-clearfix u-footer u-grey-25" id="sec-abf8"><div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-gutter-0 u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h6 class="u-text u-text-1">KB IT'S Your Life</h6>
+                  <p class="u-text u-text-2">WonJi-Jeong, JooHee-Shin, Hyein-We, SeongJun-Lim, YoungBon-Ji</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></footer>
+   
+  
+</body></html>
