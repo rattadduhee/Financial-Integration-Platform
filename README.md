@@ -4,11 +4,9 @@
 ## ✍️ 요약
 
 ### 📽 Video
-
+아래 사진 클릭 시, 프로젝트 영상 확인 가능
 [![Video Label](http://img.youtube.com/vi/rikDRE50ArE/0.jpg)](https://youtu.be/rikDRE50ArE)
 
-
-![kb재테크플랫폼_Moment](https://user-images.githubusercontent.com/34684492/200186298-f7ffe4c1-e014-49bf-bfb5-448cda42cae4.jpg)
 
 - 재테크가 어려운 모든 사용자를 위한 부동산, 주식 등 **간편 재테크 정보 제공** 및 **고객 맞춤 재테크 상품 추천** 웹 서비스
 - 문제 의식
