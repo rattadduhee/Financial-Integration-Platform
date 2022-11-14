@@ -3,6 +3,8 @@
 
 ## ✍️ 요약
 
+[![Video Label](http://img.youtube.com/vi/rikDRE50ArE/0.jpg)](https://youtu.be/rikDRE50ArE)
+
 ![kb재테크플랫폼_Moment](https://user-images.githubusercontent.com/34684492/200186298-f7ffe4c1-e014-49bf-bfb5-448cda42cae4.jpg)
 
 메인 화면
