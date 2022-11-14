@@ -3,7 +3,8 @@
 
 ## ✍️ 요약
 
-#📽 Video
+### 📽 Video
+
 [![Video Label](http://img.youtube.com/vi/rikDRE50ArE/0.jpg)](https://youtu.be/rikDRE50ArE)
 
 
